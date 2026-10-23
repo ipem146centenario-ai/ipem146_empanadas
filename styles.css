@@ -1,0 +1,184 @@
+/* GLOBAL */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  color: #ffffff;
+  background: 
+    linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+    url("empanadas.jpg") center/cover fixed no-repeat;
+}
+
+/* HEADER */
+header {
+  background: linear-gradient(135deg, #73d0ea, #085687);
+  color: white;
+  padding: 12px 8px;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 52px;
+  letter-spacing: 0.5px;
+  color: #3a2af0;
+}
+
+header p {
+  margin: 4px 0 0;
+  font-size: 15px;
+  opacity: 0.9;
+}
+
+/* GRID PRINCIPAL */
+.main {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 15px;
+  min-height: calc(100vh - 80px);
+}
+
+/* TARJETAS */
+.container {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 18px;
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
+/* FORMULARIOS */
+label {
+  margin-top: 8px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+input,
+select {
+  width: 100%;
+  max-width: 320px;
+  display: block;
+  margin: 4px auto 0;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  background: #fafafa;
+  transition: all 0.2s ease;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #3cdc10;
+  box-shadow: 0 0 15px rgba(103,102,102,0.3);
+}
+
+/* BOTÓN */
+button {
+  margin-top: 15px;
+  padding: 12px 20px;
+  font-family: Tahoma, sans-serif;
+  background: linear-gradient(135deg, #1e8522, #34c759);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 22px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  text-align: center;
+}
+
+button:hover:not(:disabled) {
+  transform: scale(1.1);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+button:disabled {
+  background: #999;
+  cursor: not-allowed;
+}
+
+/* MENSAJES */
+.mensaje {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 30px;
+  transition: opacity 0.5s ease;
+}
+
+.mensaje-error {
+  color: #ff4d4d;
+  font-weight: 600;
+}
+
+/* ESTADOS */
+.estado-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px;
+  margin: 6px 0;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.ok { background: #e6f4ea; color: #1e7e34; }
+.medio { background: #fff7e0; color: #a07900; }
+.falta { background: #fdecea; color: #b02a37; }
+
+/* SCROLL PERSONALIZADO */
+.container::-webkit-scrollbar { width: 6px; }
+.container::-webkit-scrollbar-thumb { background: #ccc; border-radius: 10px; }
+
+/* ALIAS */
+.alias {
+  color: #d63384;
+  font-weight: bold;
+  padding: 2px 8px;
+  border-radius: 5px;
+}
+
+/* COLUMNAS FLEX */
+.c {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.column {
+  flex: 1 1 300px;
+}
+
+/* INSTRUCCIONES ANIMADAS (ZOOM PERMANENTE) */
+.instrucciones {
+  display: inline-block;
+  animation: zoomPulse 2s infinite alternate;
+}
+
+@keyframes zoomPulse {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.03); }
+}
+
+/* RESPONSIVE */
+@media (max-width: 700px) {
+  .main {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+}
