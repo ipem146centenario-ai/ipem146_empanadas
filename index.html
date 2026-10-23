@@ -5,6 +5,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <title>Empanadas Criollas - IPEM 146 "Centenario"</title>
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   <style>
@@ -677,6 +680,177 @@
         box-shadow: 0 0 0 0 rgba(0, 230, 118, 0);
       }
     }
+
+
+    /* TIPOGRAFÍA MODERNA */
+    :root {
+      --font-body: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --font-heading: "Manrope", "Inter", system-ui, sans-serif;
+    }
+
+    html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    body, input, select, button, textarea { font-family: var(--font-body); }
+    header h1, h2, .modal-content h2, .precio-destacado, #btnEnviar, .btn-cerrar-modal {
+      font-family: var(--font-heading);
+    }
+    header h1 {
+      font-size: clamp(1.05rem, 2vw, 1.55rem);
+      font-weight: 800;
+      letter-spacing: -0.035em;
+      line-height: 1.25;
+    }
+    h2, .modal-content h2 {
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      line-height: 1.3;
+    }
+    body, p, label, input, select { line-height: 1.5; }
+    .precio-destacado {
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      font-weight: 900;
+      letter-spacing: -0.055em;
+      font-variant-numeric: tabular-nums;
+    }
+    button { font-weight: 700; letter-spacing: -0.01em; }
+    button#btnEnviar {
+      font-weight: 800;
+      letter-spacing: 0.045em;
+    }
+    .ingrediente-nombre { font-weight: 700; letter-spacing: -0.01em; }
+    .marquee-text { font-weight: 700; letter-spacing: 0.035em; }
+    input::placeholder { font-weight: 500; opacity: 0.75; }
+    @media (max-width: 600px) {
+      header h1 { letter-spacing: -0.025em; }
+      .modal-content { padding: 1.35rem; }
+    }
+
+
+    /* MEJORA VISUAL Y DE USABILIDAD */
+    :root {
+      --primary: #38d9f5;
+      --secondary: #102f56;
+      --accent: #ffd166;
+      --success: #45e6a0;
+      --glass: rgba(255,255,255,.075);
+      --glass-border: rgba(255,255,255,.14);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      min-height: 100vh;
+      height: auto;
+      overflow-x: hidden;
+      overflow-y: auto;
+      background:
+        radial-gradient(ellipse at 15% 0%, rgba(56,217,245,.13), transparent 36%),
+        radial-gradient(ellipse at 90% 25%, rgba(255,209,102,.08), transparent 32%),
+        linear-gradient(145deg, #06101f 0%, #0a2340 55%, #102f56 100%) fixed;
+      line-height: 1.55;
+    }
+    header {
+      position: relative;
+      padding: clamp(18px, 3vw, 30px) 18px;
+      text-align: center;
+      border-bottom: 1px solid rgba(56,217,245,.25);
+      background: rgba(3,12,25,.72);
+      box-shadow: 0 8px 28px rgba(0,0,0,.18);
+    }
+    header h1 { max-width: 1100px; margin: 0 auto; text-wrap: balance; }
+    .app-container {
+      width: min(1500px, 100%);
+      margin: 0 auto;
+      padding: clamp(12px, 2vw, 24px);
+      gap: clamp(12px, 1.5vw, 22px);
+      align-items: stretch;
+    }
+    .panel {
+      min-width: 0;
+      border: 1px solid var(--glass-border);
+      border-radius: 20px;
+      background: linear-gradient(160deg, rgba(255,255,255,.085), rgba(255,255,255,.035));
+      box-shadow: 0 18px 45px rgba(0,0,0,.22);
+      backdrop-filter: blur(14px);
+      padding: clamp(16px, 2vw, 24px);
+    }
+    .panel h2 { margin-bottom: 16px; }
+    input, select, textarea {
+      width: 100%;
+      min-height: 48px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,.19);
+      background-color: rgba(3,13,28,.72);
+      color: #f4fbff;
+      font-size: 16px;
+      transition: border-color .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+    select option { background: #10233d; color: #fff; }
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(56,217,245,.17);
+      background-color: rgba(3,13,28,.95);
+    }
+    button, .btn-wa-float, .btn-list-float { -webkit-tap-highlight-color: transparent; }
+    button { min-height: 44px; }
+    button#btnEnviar {
+      min-height: 52px;
+      border-radius: 14px;
+      box-shadow: 0 10px 25px rgba(0,210,255,.16);
+      transition: transform .2s ease, filter .2s ease, box-shadow .2s ease;
+    }
+    button#btnEnviar:hover:not(:disabled) {
+      transform: translateY(-2px);
+      filter: brightness(1.08);
+      box-shadow: 0 14px 30px rgba(0,210,255,.24);
+    }
+    .modal-overlay { padding: 18px; overflow-y: auto; }
+    .modal-content {
+      width: min(100%, 520px);
+      max-height: min(90vh, 760px);
+      overflow-y: auto;
+      border: 1px solid rgba(56,217,245,.38);
+      border-radius: 24px;
+      background: linear-gradient(150deg, #102a49, #071629 78%);
+      box-shadow: 0 24px 80px rgba(0,0,0,.48);
+    }
+    .precio-destacado { display: block; margin: 8px 0; color: var(--accent); }
+    .btn-cerrar-modal { border-radius: 12px; min-height: 46px; }
+    #countdown { box-shadow: inset 0 0 18px rgba(56,217,245,.05); }
+    #countdown span { font-family: var(--font-heading); font-size: clamp(1.3rem, 3vw, 2rem); font-weight: 800; font-variant-numeric: tabular-nums; }
+    .btn-wa-float, .btn-list-float {
+      width: 54px; height: 54px; border: 2px solid rgba(255,255,255,.72);
+      box-shadow: 0 8px 24px rgba(0,0,0,.35);
+    }
+    .btn-wa-float { bottom: 22px; right: 20px; }
+    .btn-list-float { bottom: 88px; right: 20px; }
+    .btn-wa-float:focus-visible, .btn-list-float:focus-visible, button:focus-visible {
+      outline: 3px solid var(--accent); outline-offset: 3px;
+    }
+    footer { margin-top: auto; padding: 14px 12px; }
+    @media (min-width: 1101px) {
+      body { min-height: 100vh; }
+      .app-container { flex: 1; }
+      .panel { max-height: none; }
+    }
+    @media (max-width: 1100px) {
+      body { height: auto; overflow-y: auto; }
+      .app-container { grid-template-columns: minmax(0,1fr); }
+      .panel { max-height: none; }
+      .app-container > .panel, .app-container > main { width: 100%; }
+    }
+    @media (max-width: 600px) {
+      header { padding: 18px 14px; }
+      .app-container { padding: 12px; gap: 12px; }
+      .panel { border-radius: 16px; padding: 16px; }
+      .modal-content { border-radius: 20px; padding: 20px; }
+      .btn-wa-float { right: 14px; bottom: 14px; }
+      .btn-list-float { right: 14px; bottom: 78px; }
+      .marquee-text { animation-duration: 45s; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+    }
+
   </style>
 </head>
 
@@ -684,11 +858,12 @@
   <div id="modalPrecio" class="modal-overlay">
     <div class="modal-content">
       <h2>🥟 Empanadas Criollas</h2>
-      <span class="precio-destacado">$8.000</span>
+      <span class="precio-destacado">$18.000</span>
+      <p style="font-size:1.1rem;color:var(--accent);font-weight:bold">La docena · $18.000 | Cada empanada · $1.500</p>
       <span class="incluye-queso">Empanadas caseras</span>
       <p>Empanadas Criollas IPEM 146</p>
       <p style="margin-top: 10px; font-size: 0.9rem">
-        Hacé tu pedido con anticipación al <strong>3544-586602</strong>
+        Reservá con anticipación por WhatsApp al <strong>3544-586602</strong>
       </p>
       <br />
       <button class="btn-cerrar-modal" onclick="cerrarModal()">
@@ -789,7 +964,7 @@
               </p>
               <p>
                 🍲 <strong>Entrega/retiro:</strong> Acercate a dirección.
-                <strong>Fecha y modalidad de entrega a confirmar.</strong>
+                <strong>Fecha del evento: <strong>31 de octubre de 2026.</strong> Modalidad y horario de entrega a confirmar.</strong>
               </p>
             </div>
             <div style="
@@ -804,7 +979,7 @@
                     font-weight: bold;
                     font-size: 0.95rem;
                   ">
-                VALOR: Consultar precio
+                VALOR: $18.000 la docena · $1.500 cada empanada
               </p>
             </div>
 
@@ -940,7 +1115,7 @@
           <option value="ingredientes">Insumos/Ingredientes 🍲</option>
           <option value="dinero">Donar Dinero 💸</option>
           <option value="porciones">
-            Comprar Empanadas (precio a confirmar) 🎟️
+            Comprar Empanadas ($1.500 cada una / $18.000 la docena) 🎟️
           </option>
         </select>
 
@@ -955,7 +1130,7 @@
         </div>
 
         <div id="divPorciones" style="display: none">
-          <input type="number" id="porcionesInput" placeholder="Cantidad de porciones"
+          <input type="number" id="porcionesInput" min="1" step="1" placeholder="Cantidad de empanadas"
             oninput="calcularTotalPorciones()" inputmode="numeric" />
           <p id="txtTotalVenta" style="
                 color: var(--success);
@@ -1023,7 +1198,7 @@
 
   <footer>
     <div class="marquee-text">
-      IPEM 146 "Centenario" - Cooperación Solidaria para Empanadas Criollas - ¡Sumate con tu aporte! - Fecha y entrega a confirmar
+      IPEM 146 "Centenario" - Cooperación Solidaria para Empanadas Criollas - ¡Sumate con tu aporte! - Evento: 31 de octubre de 2026 - $18.000 la docena / $1.500 cada empanada
       de la escuela
     </div>
     <div>
@@ -1032,7 +1207,7 @@
   </footer>
 
   <script>
-    const PRECIO_PORCION = 0;
+    const PRECIO_PORCION = 1500; // Precio por empanada en pesos
     const URL =
       "https://script.google.com/macros/s/AKfycbzSda5OCxJ3UjDtiTvmE7ZscNsieo75bkz_yvcQLS1z451LiYoI4BnLC_Q3qS2XwIcEAg/exec";
     const WHATSAPP_COORDINADOR = "5493544586602";
@@ -1128,7 +1303,7 @@
         parseInt(document.getElementById("porcionesInput").value) || 0;
       const total = cant * PRECIO_PORCION;
       const txt = document.getElementById("txtTotalVenta");
-      txt.innerText = cant > 0 ? "Precio total a confirmar" : "";
+      txt.innerText = cant > 0 ? `Total: $${(cant * PRECIO_PORCION).toLocaleString("es-AR")} (${Math.floor(cant / 12)} docena(s)${cant % 12 ? ` + ${cant % 12} empanada(s)` : ""})` : "";
       validarInput();
     }
 
@@ -1336,11 +1511,12 @@
 
 👤 *Nombre:* ${nombreUsr}
 📱 *Teléfono:* ${data.telefono}
-🍽️ *Porciones:* ${data.porciones}
-💰 *Total:* Precio a confirmar (${data.porciones} empanadas)
+🥟 *Cantidad:* ${data.porciones} empanadas
+💰 *Total:* $${(data.porciones * PRECIO_PORCION).toLocaleString("es-AR")}
+📦 *Precio:* $1.500 cada una / $18.000 la docena
 
-📅 *Retiro:* Fecha a confirmar
-🕒 *Horario:* A confirmar
+📅 *Evento/retiro:* 31 de octubre de 2026
+🕒 *Horario y modalidad:* A confirmar
 
 🗓️ *Fecha:* ${fecha}
 
@@ -1446,7 +1622,7 @@
     }
 
     function iniciarCountdown() {
-      const fecha = new Date("May 10, 2026 12:30:00").getTime();
+      const fecha = new Date("Oct 31, 2026 12:30:00").getTime();
       setInterval(() => {
         const dist = fecha - new Date().getTime();
         if (dist < 0) return;
